@@ -1,19 +1,19 @@
 %define upstream_name    HTTP-Lite
 %define upstream_version 2.3
 
-Name:       perl-%{upstream_name}
-Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 2
+Name:		perl-%{upstream_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:	3
 
-Summary:    Lightweight HTTP implementation
-License:    GPL+ or Artistic
-Group:      Development/Perl
-Url:        http://search.cpan.org/dist/%{upstream_name}
-Source0:    http://www.cpan.org/modules/by-module/HTTP/%{upstream_name}-%{upstream_version}.tar.gz
+Summary:	Lightweight HTTP implementation
+License:	GPL+ or Artistic
+Group:		Development/Perl
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/HTTP/%{upstream_name}-%{upstream_version}.tar.gz
 
-BuildRequires: perl(ExtUtils::MakeMaker)
-BuildArch: noarch
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
+BuildRequires:	perl-devel
+BuildRequires:	perl(ExtUtils::MakeMaker)
+BuildArch:	noarch
 
 %description
 HTTP::Lite is a stand-alone lightweight HTTP/1.1 implementation
@@ -37,24 +37,34 @@ HTTP::Lite now supports Proxies.
 %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
-
+perl Makefile.PL INSTALLDIRS=vendor
 %make
 
 %check
 %make test
 
 %install
-rm -rf %buildroot
 %makeinstall_std
 
-%clean
-rm -rf %buildroot
-
 %files
-%defattr(-,root,root)
 %doc LICENSE README META.yml Changes
 %{_mandir}/man3/*
-%perl_vendorlib/*
+%{perl_vendorlib}/*
 
+%changelog
+* Sun Apr 17 2011 Funda Wang <fwang@mandriva.org> 2.300.0-2mdv2011.0
++ Revision: 654350
+- rebuild for updated spec-helper
+
+* Fri Dec 17 2010 Guillaume Rousse <guillomovitch@mandriva.org> 2.300.0-1mdv2011.0
++ Revision: 622698
+- update to new version 2.3
+
+* Sun Oct 17 2010 Thierry Vignaud <tv@mandriva.org> 2.200.0-2mdv2011.0
++ Revision: 586146
+- fix description
+
+* Sat Oct 16 2010 Guillaume Rousse <guillomovitch@mandriva.org> 2.200.0-1mdv2011.0
++ Revision: 586065
+- import perl-HTTP-Lite
 
