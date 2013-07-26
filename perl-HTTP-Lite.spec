@@ -1,15 +1,15 @@
 %define upstream_name    HTTP-Lite
-%define upstream_version 2.3
+%define upstream_version 2.42
 
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	3
+Version:	%perl_convert_version 2.42
+Release:	1
 
 Summary:	Lightweight HTTP implementation
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/HTTP/%{upstream_name}-%{upstream_version}.tar.gz
+Source0:	http://www.cpan.org/modules/by-module/HTTP/HTTP-Lite-2.42.tar.gz
 
 BuildRequires:	perl-devel
 BuildRequires:	perl(ExtUtils::MakeMaker)
@@ -67,4 +67,5 @@ perl Makefile.PL INSTALLDIRS=vendor
 * Sat Oct 16 2010 Guillaume Rousse <guillomovitch@mandriva.org> 2.200.0-1mdv2011.0
 + Revision: 586065
 - import perl-HTTP-Lite
+
 

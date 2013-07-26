@@ -1,2 +1,4 @@
+removed_sources:
+  HTTP-Lite-2.3.tar.gz: e10038c28f600e1b662e9a1f96ac0b0d8d81273e
 sources:
-  "HTTP-Lite-2.3.tar.gz": e10038c28f600e1b662e9a1f96ac0b0d8d81273e
+  HTTP-Lite-2.42.tar.gz: a7dee73afa67c34a482fde72ff2049fdb882cc5b
